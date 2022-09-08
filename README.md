@@ -1,11 +1,11 @@
 # project
 # 📎 윤리적 소비(팀명: 코D카인)
-![image]("C:\Users\aischool\Downloads\표지.jpg")
+![표지](https://user-images.githubusercontent.com/108060144/189081142-b401b69d-03a4-4123-8492-3e600d9a5070.jpg)
 
 
 ## 👀 서비스 소개
-* 서비스명:  꽃 개화 시기별 우리 지역 근처 데이트/드라이브 추천 장소 및 꽃 축제 추천 
-* 서비스설명: 
+* 서비스명:  윤리적 소비를 위한 커뮤니티 
+* 서비스설명: 제로웨이스트 및 비건 같은 윤리적 소비를 희망하는 사람들이 모여서 함께 이야기하고 공동구매&캠페인을 할 수 있는 사이트다.
 <br>
 
 ## 📅 프로젝트 기간
@@ -89,7 +89,7 @@
 <br>
 
 ## 📌 ER다이어그램
-![image](https://user-images.githubusercontent.com/25995055/169925318-102784c2-893f-4fd7-bec9-a54c44b669d4.png)
+![코드카인_20220908_174341](https://user-images.githubusercontent.com/108060144/189081822-68925dbe-7e0f-472b-bd2d-e9d9235e63e2.png)
 <br>
 
 ## 🖥 화면 구성
