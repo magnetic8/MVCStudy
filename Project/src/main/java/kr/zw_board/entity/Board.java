@@ -9,8 +9,23 @@ public class Board {
 	private String login_id;
 	private int zw_cnt;
 	private int zw_likes;
+	private int notice;
 	private int zw_cmtcnt;  //댓글수
+	private String u_grade;
 	
+	
+	public String getU_grade() {
+		return u_grade;
+	}
+	public void setU_grade(String u_grade) {
+		this.u_grade = u_grade;
+	}
+	public int getNotice() {
+		return notice;
+	}
+	public void setNotice(int notice) {
+		this.notice = notice;
+	}
 	public int getZw_seq() {
 		return zw_seq;
 	}

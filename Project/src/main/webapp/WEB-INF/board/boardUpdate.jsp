@@ -6,11 +6,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<link rel="shortcut icon" href="/img/favi/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="${cpath }/img/fav/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="${cpath }/img/fav/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="${cpath }/img/fav/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="${cpath }/img/fav/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="${cpath }/img/fav/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="${cpath }/img/fav/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="${cpath }/img/fav/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="${cpath }/img/fav/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="${cpath }/img/fav/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="${cpath }/img/fav/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="${cpath }/img/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="${cpath }/img/fav/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="${cpath }/img/fav/favicon-16x16.png">
+<link rel="manifest" href="${cpath }/img/fav/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="${cpath }/img/fav//ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>empty
-  </title>
+  <title>FOR THE URTH</title>
   <!-- CSS files -->
   <link href="${cpath}/css/tabler.css" rel="stylesheet" />
   <link href="${cpath}/css/tabler-vendors.css" rel="stylesheet" />
@@ -25,13 +43,19 @@
 
   <!-- my -->
   <link rel="stylesheet" href="${cpath}/css/my/sub.css">
-<title>Bootstrap Example</title>
+  <link rel="stylesheet" href="${cpath }/css/my/dy.css">
+  <link rel="stylesheet" href="${cpath }/css/my/reply.css">
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" viewport-fit=cover">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
+$(document).ready(function(){
+	var val= '${vo.zw_headline}';
+	$("#headline-tags").val(val).prop("selected",true);
+})
 	document.addEventListener("DOMContentLoaded", function () {
 	    tinyMCE.init({
 	      selector: '#tinymce-default',
@@ -61,6 +85,23 @@
 		error : function(){alert("Error");}
 		});
 	}
+	
+	function check(){
+		var title = $('#zw_title').val()
+		
+		var content = $('#tinymce-default').val();
+		console.log(content);
+		if(title == ""){
+			alert("제목을 입력하세요");
+			return false
+		}else if(content == ""){
+			alert("내용을 입력하세요");
+			return false
+		}
+		var del = confirm("수정하시겠습니까");
+		if(del == true){ return true}
+		else{return false}
+	}
 </script>
 </head>
 <body>
@@ -74,7 +115,7 @@
       <div class="cover-wrap">
         <div class="container">
           <div class="cover">
-            지도
+            제로웨이스트/비건
           </div>
         </div>
       </div>
@@ -86,8 +127,7 @@
             <div class="row g-2 align-items-center">
               <div class="col">
                 <h2 class="page-title">
-                  글 수정
-                </h2>
+                <a href="${cpath }/zwlist.do">제로웨이스트/비건</a> </h2>
               </div>
             </div>
           </div>
@@ -96,31 +136,41 @@
           <div class="container-xl">
             <div class="row row-cards">
             <div class="panel-body">
-    	<form action="${cpath }/boardUpdate.do" method="post" enctype="multipart/form-data">
+    	<form action="${cpath }/boardUpdate.do" method="post" enctype="multipart/form-data" onsubmit="return check()">
     		
     		<table class="table table-bordered">
     			<input type ="hidden" name ="login_id" value="${mvo.login_id }"/>
     			<input type="hidden" name ="zw_seq" value="${vo.zw_seq }"/>
     			<tr>
-    				<td>제목</td>
-    				<td><input type="text" name="zw_title" class="form-control" value="${vo.zw_title }"></td>
+    				<td class>말머리/제목</td>
+    				<td class="bal">
+                	<div>
+                      <select type="text" class="form-select " name ="headval" placeholder="Select" id="headline-tags" value="">
+                        <option value="제로웨이스트">제로웨이스트</option>
+                        <option value="비건">비건</option>
+                        
+                      </select>
+                      
+                    </div>
+                </td>
+    				<td ><input type="text" name="zw_title" id="zw_title" class="form-control" value="${vo.zw_title }"></td>
     			</tr>
     			<tr>
     				<td>내용</td>
-    				<td><textarea rows="10" name="zw_content" class="form-control" id="tinymce-default">${vo.zw_content }</textarea></td>
+    				<td colspan="2"><textarea rows="10" name="zw_content" class="form-control" id="tinymce-default">${vo.zw_content }</textarea></td>
     			</tr>
     			<tr>
     				<td>첨부파일</td>
-    				<td><div id="change">${vo.zw_file }<c:if test="${vo.zw_file != ' ' }">
+    				<td colspan="2"><div id="change">${vo.zw_file }<c:if test="${vo.zw_file != ' ' }"><img id="upimg" src="${cpath}/upload/${vo.zw_file}">
     			<button type="button" class ="btn btn-sm btn-warning" onclick ="fileDelete(${vo.zw_seq },'${vo.zw_file }')">X</button>
     			</c:if></div></div><input type="file" name ="filename" ></td>
     				
     			</tr>
     			<tr>
-    				<td colspan="2" align="right">
-    					<button type="submit" class="btn btn-sm btn-primary" >수정 </button>
-    					<button type="button" class="btn btn-sm btn-warning" onclick="location.href='${cpath}/boardView.do?num=${vo.zw_seq }&login_id=${mvo.login_id}'">취소 </button>
-    					<button type="button" class="btn btn-sm btn-info" onclick="location.href='${cpath }/zwlist.do'">리스트</button>
+    				<td colspan="3" align="right">
+    					<button type="submit" class="btn btn-outline-success w-5" >수정 </button>
+    					<button type="button" class="btn btn-outline-danger w-5" onclick="location.href='${cpath }/boardView.do?num=${vo.zw_seq }'">취소 </button>
+    					<button type="button" class="btn btn-outline-primary w-5" onclick="location.href='${cpath }/zwlist.do'">리스트</button>
     				</td>
     			</tr>
     		</table>
@@ -131,6 +181,12 @@
         <jsp:include page="../../footer/footer.jsp" />
   </div>
   </div>
+<<<<<<< HEAD
+  </div>
+  </div>
+
+=======
+>>>>>>> a9aa297390baeee79bfc3fd88db4b4841527f1c4
 
 </body>
 </html>

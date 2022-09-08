@@ -6,11 +6,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="shortcut icon" href="/img/favi/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="${cpath }/img/fav/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="${cpath }/img/fav/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="${cpath }/img/fav/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="${cpath }/img/fav/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="${cpath }/img/fav/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="${cpath }/img/fav/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="${cpath }/img/fav/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="${cpath }/img/fav/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="${cpath }/img/fav/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="${cpath }/img/fav/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="${cpath }/img/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="${cpath }/img/fav/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="${cpath }/img/fav/favicon-16x16.png">
+<link rel="manifest" href="${cpath }/img/fav/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="${cpath }/img/fav//ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>empty</title>
+<title>FOR THE URTH</title>
 <!-- CSS files -->
 <link href="${cpath}/css/tabler.css" rel="stylesheet" />
 <link href="${cpath}/css/tabler-vendors.css" rel="stylesheet" />
@@ -65,9 +84,9 @@ function fn_view(login_id){
 					<span class="avatar avatar-xl mb-3 avatar-rounded"
 						style="background-image: url(https://img.freepik.com/premium-vector/illustration-of-earth-character-sprouts_279539-60.jpg?w=1060)"></span>
 					<h3 class="m-0 mb-1">
-						<a href="#">닉네임</a>
+						<a href="#">${mvo.u_nick }</a>
 					</h3>
-					<div class="text-muted">ID</div>
+					<div class="text-muted">${mvo.login_id }</div>
 					<div class="mt-3">
 						<span class="badge bg-blue-lt">등급</span>
 					</div>
@@ -75,7 +94,7 @@ function fn_view(login_id){
 				<!-- 프로필 끝-->
 
 				<div class="progress mb-2">
-					<div class="progress-bar" style="width: 20%" role="progressbar"
+					<div class="progress-bar" style="width: ${mvo.u_point}%" role="progressbar"
 						aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"
 						aria-label="38% Complete">
 						<span class="visually-hidden">38% Complete</span>

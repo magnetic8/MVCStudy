@@ -27,6 +27,18 @@ li {
 .clear {
     clear: both;
 }
+.w-10{
+	width:10% !important;
+}
+.w-20{
+	width:20% !important;
+}
+.w-30{
+	width:30% !important;
+}
+.w-40{
+	width:40% !important;
+}
 
 .pagination li:hover a {
     color: #626976 !important;
@@ -47,6 +59,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    bottom:0;
 }
 
 .my-footer>div {
@@ -65,11 +78,11 @@ header {
 }
 
 #navbar-menu {
-    margin-left: 5rem !important;
+    margin-left: 3rem !important;
 }
 
 li.nav-item {
-    margin-right: 1.5rem !important;
+    margin-right: 0.5rem !important;
 }
 
 ul.navbar-nav li.dropdown:hover>div.dropdown-menu {
@@ -118,16 +131,3 @@ li.nav-item.active .nav-link-title {
 }
 
 /* ------header end -------*/
-
-
-.w-40{
-	width : 40% !important;
-}
-
-.w-20{
-	width : 20% !important;
-}
-
-.w-10{
-	width : 10% !important;
-}

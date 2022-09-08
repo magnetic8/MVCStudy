@@ -9,8 +9,29 @@ public class Zw_Board {
 	private String login_id;
 	private int zw_cnt;
 	private int zw_likes;
+	private int notice;
 	private int zw_cmtcnt;
+	private String zw_headline;
+	private String u_grade;
 	
+	public String getU_grade() {
+		return u_grade;
+	}
+	public void setU_grade(String u_grade) {
+		this.u_grade = u_grade;
+	}
+	public String getZw_headline() {
+		return zw_headline;
+	}
+	public void setZw_headline(String zw_headline) {
+		this.zw_headline = zw_headline;
+	}
+	public int getNotice() {
+		return notice;
+	}
+	public void setNotice(int notice) {
+		this.notice = notice;
+	}
 	public int getZw_seq() {
 		return zw_seq;
 	}

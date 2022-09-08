@@ -6,11 +6,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<link rel="shortcut icon" href="/img/favi/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="${cpath }/img/fav/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="${cpath }/img/fav/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="${cpath }/img/fav/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="${cpath }/img/fav/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="${cpath }/img/fav/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="${cpath }/img/fav/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="${cpath }/img/fav/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="${cpath }/img/fav/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="${cpath }/img/fav/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="${cpath }/img/fav/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="${cpath }/img/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="${cpath }/img/fav/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="${cpath }/img/fav/favicon-16x16.png">
+<link rel="manifest" href="${cpath }/img/fav/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="${cpath }/img/fav//ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>empty</title>
+<title>FOR THE URTH</title>
 <!-- CSS files -->
 <link href="${cpath}/css/tabler.css" rel="stylesheet" />
 <link href="${cpath}/css/tabler-vendors.css" rel="stylesheet" />
@@ -22,7 +41,7 @@
 
 <!-- my -->
 <link rel="stylesheet" href="${cpath}/css/my/sub.css">
-<title>Bootstrap Example</title>
+<title>FOR THE URTH</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"
 	viewport-fit=cover" >
@@ -38,20 +57,28 @@
 		<!-- WEB-INF폴더에서 사용시 page="../header/header.jsp"로 변경 -->
 			<jsp:include page="../../header/header.jsp" />
 			<!-- 여기까지 header -->
+			<div class="cover-wrap">
+        <div class="container">
+          <div class="cover">
+            칼럼 Archive
+          </div>
+        </div>
+      </div>
 			 <!------------여기부터 입력----------->
-      <div class="container">
+       <div class="container">
+       
         <br>
         
-        <h2>목록(List)</h2>
-        <hr>
+        <h2>칼럼 Archive</h2>
+        <hr class="my-3">
         <c:forEach var="cal_T" items="${list}" >
-        <div class="row">
+        <div class="row mt-2">
           <div class="col"></div>
           <div class="col-10">
             <div class="card">
               <div class="row row-0">
                 <div class="col-3">
-                  <img src="${cal_T.img}" class="w-100 h-100 object-cover" alt="Card side image" " style="max-width:200px max-height:200px"/>
+                  <img src="${cal_T.img}" class="w-100 h-100 object-cover" alt="Card side image" " style="max-width:auto; max-height:150px;"/>
                 </div>
                 <div class="col">
                   <div class="card-body">
@@ -68,8 +95,9 @@
         </c:forEach>
        
         
-
+	
       <div class="row row-cards mt-3">
+      <div class="col-1"></div>
         <div class="col">
           <div class="card">
             <div class="card-footer d-flex align-items-center py-2">
@@ -150,7 +178,9 @@
               </div>
             </form>
       </div>
+      
       </div>
+      <div class="col-1"></div>
       </div>
       </div>
       <!------------ㄲㅡㅌ----------->
@@ -159,8 +189,8 @@
 			</div>
 			<!-- footer -->
 			<!-- WEB-INF폴더에서 사용시 page="../footer/footer.jsp"로 변경 -->
-			<jsp:include page="../../footer/footer.jsp" />
 		</div>
+			<jsp:include page="../../footer/footer.jsp" />
 	</div>
 </body>
 </html>

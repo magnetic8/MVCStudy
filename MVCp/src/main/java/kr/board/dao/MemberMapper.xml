@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- 선언문(PI) 엔터나 띄어쓰기 하면 오류남 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  <!-- dtd ... 스키마 : xml안에서 사용할 태그들이 정의되어있는 문서 -->
+<mapper namespace="kr.board.dao.MemberMapper"> <!-- 이 파일이 있는 패키지이름.xml파일 이름 -->
+ 	<select id="login" parameterType="kr.board.entity.Member" resultType="kr.board.entity.Member">
+ 		select * from userT where user_id=#{user_id} and pw=#{pw}
+    </select>
+ 	<insert id="join" parameterType="kr.board.entity.Member">
+ 		insert into userT(user_num,user_id,pw,username,birth,email,address,address_detail) values(user_num_seq.nextval,#{user_id},#{pw},#{username},#{birth},#{email},#{address},#{address_detail}) 		
+ 	</insert>
+ 	
+ 
+</mapper>

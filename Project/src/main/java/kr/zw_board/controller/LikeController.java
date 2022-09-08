@@ -1,6 +1,7 @@
 package kr.zw_board.controller;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.Gson;
 
 import kr.board.dao.BoardMyBatisDAO;
+import kr.imgboard.dao.ImgBoardMyBatisDAO;
 import kr.login.controller.Controller;
 import kr.login.entity.Member;
 
@@ -32,11 +34,9 @@ public class LikeController implements Controller {
 		Map<String,Object> m = new HashMap<>();
 		m.put("no",zw_seq);
 		m.put("id",login_id);
-		BoardMyBatisDAO dao = new BoardMyBatisDAO();
 		
+		BoardMyBatisDAO dao = new BoardMyBatisDAO();
 		int result = dao.likeCheck(m);
-		System.out.println(result);
-		System.out.println(zw_seq+login_id);
 		if(result==0) {
 			dao.likeUpdate(m);
 		}else {

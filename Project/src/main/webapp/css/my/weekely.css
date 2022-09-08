@@ -38,7 +38,7 @@ span {
 .w-sec::before {
     content: "";
     /* background-color: #151515; */
-    background: url(../../img/my/zero.png);
+    background: url(../../img/my/zero.png) center ;
     background-size: cover;
     opacity: 0.25;
     position: absolute;
@@ -95,12 +95,12 @@ span {
 }
 
 .vg-bg::before {
-    background: url(../../img/my/vegan.png) !important;
+    background: url(../../img/my/vegan.png) center !important;
     background-size: cover !important;
 }
 
 .pl-bg::before {
-    background: url(../../img/my/plastic.png) !important;
+    background: url(../../img/my/zero.jpg) center !important;
     background-size: cover !important;
 }
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- 선언문(PI) 엔터나 띄어쓰기 하면 오류남 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  <!-- dtd ... 스키마 : xml안에서 사용할 태그들이 정의되어있는 문서 -->
+<mapper namespace="kr.board.dao.MemberMapper"> <!-- 이 파일이 있는 패키지이름.xml파일 이름 -->
+ 	<select id="login" parameterType="kr.board.entity.Member" resultType="kr.board.entity.Member">
+ 		select * from t_login where login_id=(select login_id from t_user where login_id=#{login_id} and u_pw=#{u_pw})
+    </select>
+ 	<insert id="join1" parameterType="kr.board.entity.Member">
+ 		insert into t_login(login_id,login_type,user_name,joindate,u_birthdate,post,u_addr,u_nick) values(#{login_id},'m',#{user_name},sysdate,to_date(#{u_birthdate},'YYYY-MM-DD'),#{post},#{u_addr},#{u_nick}) 		
+ 		
+ 	</insert>
+ 	<insert id="join2" parameterType="kr.board.entity.Member">
+ 		insert into t_user(login_id,u_pw) values (#{login_id},#{u_pw})
+ 	</insert>
+ 	<select id="getById" parameterType="String" resultType="int">
+ 		select count(*) from t_login where login_id=#{login_id}
+ 	</select>
+ 	<select id="getByNic" parameterType="String" resultType="int">
+ 		select count(*) from t_login where u_nick=#{u_nick}
+ 	</select>
+ 	
+ 
+</mapper>

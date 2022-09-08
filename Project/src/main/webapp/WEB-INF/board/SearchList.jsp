@@ -6,10 +6,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="shortcut icon" href="/img/favi/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="${cpath }/img/fav/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="${cpath }/img/fav/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="${cpath }/img/fav/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="${cpath }/img/fav/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="${cpath }/img/fav/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="${cpath }/img/fav/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="${cpath }/img/fav/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="${cpath }/img/fav/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="${cpath }/img/fav/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="${cpath }/img/fav/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="${cpath }/img/fav/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="${cpath }/img/fav/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="${cpath }/img/fav/favicon-16x16.png">
+<link rel="manifest" href="${cpath }/img/fav/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="${cpath }/img/fav//ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>empty
+  <title>FOR THE URTH
   </title>
   <!-- CSS files -->
   <link href="${cpath}/css/tabler.css" rel="stylesheet" />
@@ -24,7 +42,6 @@
 
   <!-- my -->
   <link rel="stylesheet" href="${cpath}/css/my/sub.css">
-<title>Bootstrap Example</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" viewport-fit=cover">
 <script
@@ -73,7 +90,7 @@ $(document).ready(function(){
       <div class="cover-wrap">
         <div class="container">
           <div class="cover">
-            제로웨이스ㅡ
+            제로웨이스트/비건
           </div>
         </div>
       </div>
@@ -85,8 +102,21 @@ $(document).ready(function(){
             <div class="row g-2 align-items-center">
               <div class="col">
                 <h2 class="page-title">
-                  제로웨이스트
-                </h2>
+                <a href="${cpath }/zwlist.do">제로웨이스트/비건</a> </h2>
+                 <form action="${cpath }/hlSearch.do" method="get" id="searchForm" >
+                  <select type="text" class="from-select" name="headval" id="headline-tags" value="">
+                    	<option value="제로웨이스트">제로웨이스트</option>
+                    	<option value="비건">비건</option>
+                    </select>
+                    <button type="submit" class="btn btn-icon" value="Submit" ><svg xmlns="http://www.w3.org/2000/svg"
+                          class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24"
+                          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                          stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                          <circle cx="10" cy="10" r="7"></circle>
+                          <line x1="21" y1="21" x2="15" y2="15"></line>
+                        </svg></button>
+                  </form>
               </div>
             </div>
           </div>
@@ -95,12 +125,8 @@ $(document).ready(function(){
           <div class="container-xl">
             <div class="row row-cards">
             <div class="col-lg-6">
-                <div class="card">
-                  
-                </div>
               </div>
-              
-              <div class="col-12 mt-5 mb-5">
+              <div class="col-12  mb-5">
             <div class="bg-light border-y">
               <div class="table-responsive">
                 <table class="table table-vcenter table-hover">
@@ -111,16 +137,29 @@ $(document).ready(function(){
                       <th>글쓴이</th>
                       <th>등록일</th>
                       <th>조회</th>
+                      <th>좋아요</th>
                     </tr>
                   </thead>
+                  
                   <tbody id="list">
-                  	<c:forEach  var="vo" items="${list2 }"> 
-    					<tr>
-			    			<td class ="text-center">${vo.zw_seq }</td>
+                  <c:forEach  var="vo" items="${notice}">
+    					<tr class="bg-yellow-lt">
+			    			<td class ="text-center">공지</td>
 			    			<td><a href="${cpath }/boardView.do?num=${vo.zw_seq}&p=${board2.currentPage}&login_id=${mvo.login_id}" class="text-reset">${vo.zw_title }<span class="text-orange">&nbsp;[${vo.zw_cmtcnt }]</span></a></td>
 			    			<td class="text-muted text-center"><img src="#" alt="icon">${vo.login_id }</td>
 			    			<td class="text-muted text-center">${vo.zw_date }</td>
 			    			<td class="text-muted  text-center">${vo.zw_cnt }</td>
+			    			<td class="text-muted text-center">${vo.zw_likes }</td>
+			    		</tr>
+    				</c:forEach>
+                  	<c:forEach  var="vo" items="${list2 }"> 
+    					<tr>
+			    			<td class ="text-center">${vo.zw_seq }</td>
+							<td class="text-muted " ><a href="${cpath }/boardView.do?num=${vo.zw_seq}&p=${board.currentPage}&login_id=${mvo.login_id}" class="text-reset"><span class="text-green">[${vo.zw_headline}]<svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M5 21c.5 -4.5 2.5 -8 7 -10"></path><path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z"></path></svg></span>
+			    			${vo.zw_title }<span class="text-orange">&nbsp;[${vo.zw_cmtcnt }]</span></a></td>			    			<td class="text-muted text-center"><img src="#" alt="icon">${vo.login_id }</td>
+			    			<td class="text-muted text-center">${vo.zw_date }</td>
+			    			<td class="text-muted  text-center">${vo.zw_cnt }</td>
+			    			<td class="text-muted text-center">${vo.zw_likes }</td>
 			    		</tr>
     				</c:forEach>
                     
@@ -144,7 +183,7 @@ $(document).ready(function(){
 				    <c:forEach var="i" begin="${board2.start_page}" end="${board2.end_page}">
 				    	<c:choose>
 				    	<c:when test="${board2.currentPage eq i}">
-				    	<li class="page-item active"><a class="page-link" href="${cpath }/zwlist.do?p=${i}">${i}</a></li>
+				    	<li class="page-item active"><a class="page-link" href="${cpath }/zwSearch.do?p=${i}&val=${val}&text=${text}">${i}</a></li>
 				    	</c:when>
 				    	<c:otherwise>
 					    <li class="page-item"><a class="page-link" href="${cpath }/zwSearch.do?p=${i}&val=${val}&text=${text}">${i}</a></li>
@@ -213,6 +252,8 @@ $(document).ready(function(){
             </div>
               <div id="list"></div>
             </div>
+          </div>
+          </div>
           </div>
         </div>
         <jsp:include page="../../footer/footer.jsp" />

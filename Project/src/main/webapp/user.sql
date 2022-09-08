@@ -15,15 +15,36 @@ primary key (user_num)
 
 );
 
+update t_login set u_point=70 where login_id='carrot@naver.com'
+
+
+<<<<<<< HEAD
+select * from t_together_comment where tb_seq=2 order by
+		tb_cmt_seq
+
+select * from t_login where login_id='carrot@naver.com'
+
+update t_login set u_point=130 where login_id='5@naver.com'
+update t_login set u_grade='지구지킴단' where login_id='5@naver.com'
+update t_login set u_point=130 where login_id='5@naver.com'
+select * from t_together_comment where tb_seq='5' order by
+		tb_cmt_seq
+
+select count(*) from likes
+
 create sequence user_num_seq
-select * from T_USER;
+select * from t_login;
+
+update t_login set u_grade='씨앗' where login_id='111@naver.com'
 
 select * from userT where user_id='pipi1055' and pw='pipipipi';
+>>>>>>> a9aa297390baeee79bfc3fd88db4b4841527f1c4
 
 insert into userT(user_num, username, pw, user_id) values(user_num_seq.nextval, '배수진', 'pipi', 'pipi1055'); 
 insert into userT(user_num, username, pw, user_id) values(user_num_seq.nextval, '최정윤', 'pipipipi', 'pipi1044'); 
 insert into userT(user_num, username, pw, user_id) values(user_num_seq.nextval, '배배배', 'pipipipi', 'pipi1033'); 
 
+<<<<<<< HEAD
 update userT set pw='pipipipi' where username='배수진';
 select count(*) from userT where user_id='pipi1055' and pw='pipipipi';
 
@@ -32,10 +53,59 @@ create table kakao_table (
     k_name varchar(20) not null,
     k_email varchar(50) not null,
     primary key(k_number)
+=======
+select (select count(*) from T_ZW_BOARD where login_id='login_id 07') + (select count(*) from T_TOGETHER_BOARD where login_id='login_id 07') + (select count(*) from T_img_BOARD where login_id='login_id 07') from dual
+
+update userT set pw='pipipipi' where username='배수진';
+select count(*) from userT where user_id='pipi1055' and pw='pipipipi';
+
+create table to_likes (
+	
+>>>>>>> a9aa297390baeee79bfc3fd88db4b4841527f1c4
 );
 
 select * from kakao_table where k_name='배수진' and k_email='sjpae1216@gmail.com';
 
+<<<<<<< HEAD
+=======
+CREATE TABLE buy_likes
+(
+    buy_seq      NUMBER(18, 0)    NOT NULL, 
+    login_id    VARCHAR2(30)     NOT NULL
+)
+/
+
+CREATE SEQUENCE to_likes_SEQ
+START WITH 1
+INCREMENT BY 1;
+/
+
+CREATE OR REPLACE TRIGGER to_likes_AI_TRG
+BEFORE INSERT ON to_likes 
+REFERENCING NEW AS NEW FOR EACH ROW 
+BEGIN 
+    SELECT to_likes_SEQ.NEXTVAL
+    INTO :NEW.to_seq
+    FROM DUAL;
+END;
+/
+
+select * from t_user
+select * from t_together_form
+delete from t_together_form where login_id='login_id 07'
+
+CREATE TABLE to_likes
+(
+    tb_seq      NUMBER(18, 0)    NOT NULL, 
+    login_id    VARCHAR2(30)     NOT NULL
+)
+
+drop table to_likes
+
+select * from t_login where login_id='1212';
+
+
+>>>>>>> a9aa297390baeee79bfc3fd88db4b4841527f1c4
 select * from kakao_table
 select * from t_outer_login
 select * from t_login
@@ -116,6 +186,17 @@ select zw_title, zw_content, zw_file, zw_date, login_id, zw_cnt, zw_likes, (sele
 
 select * from cal_T
 
+<<<<<<< HEAD
+=======
+select * from t_login where login_id='1@naver.com'
+
+update t_login set u_point=100 where login_id='1@naver.com'
+
+select b.tb_seq,b.tb_title,b.tb_headline,b.tb_content,b.tb_file,b.tb_regdate,b.login_id,tb_cnt,tb_likes,(select
+		count(*) from t_together_comment c where c.tb_seq = b.tb_seq) as
+		tb_cmtcnt, (select u_grade from t_login t where t.login_id= b.login_id) as u_grade from t_together_board b order by tb_seq desc 
+
+>>>>>>> a9aa297390baeee79bfc3fd88db4b4841527f1c4
 delete 
 
 select * from t_login l, t_user u where l.login_id = u.login_id and l.login_id ='login_id 07'
@@ -244,3 +325,177 @@ select tb_cmt_seq as zw_cmt_seq, tb_seq as zw_seq, tb_cmt_content as zw_cmt_cont
 select img_cmt_seq as zw_cmt_seq, img_seq as zw_seq, img_cmt_content as zw_cmt_content, img_cmt_date as zw_cmt_date, login_id from t_img_comment where login_id=#{login_id} order by img_cmt_date DESC
 
 as zw_cmt_seq,  as zw_seq,  as zw_cmt_content,  as zw_cmt_date, login_id
+
+
+<<<<<<< HEAD
+select count(notice) from t_zw_board where notice is not null
+
+
+select count(login_id) from (select * from (select * from(select * from t_login A join t_user B on A.login_id = B.login_id) order by joindate desc))
+
+
+select * from (select a.*, ROWNUM as rn from (select * from t_zw_board where notice is not null order by notice desc) a where ROWNUM <= 10 ) where rn >= 1
+
+select count(notice) from t_zw_board where notice is not null
+
+
+select * from (select a.*, ROWNUM as rn from (select zw_seq as seq, zw_title as title, zw_content as content, zw_file as files, zw_date as day, login_id, zw_cnt as cnt, zw_likes as likes, notice from t_zw_board where notice is not null order by notice desc) a where ROWNUM <= 10) where rn >= 0
+
+select zw_seq as seq, zw_title as title, zw_content as content, zw_file as files from t_zw_board
+
+insert into youtube(name,content,video,logo) values('SKbroadband 중부방송','[카운트다운] 제로웨이스트 지구를 살리는 삶의 작은 변화-1부', 'https://www.youtube.com/embed/3hJ_p3xnpbw','https://yt3.ggpht.com/ytc/AMLnZu-nF9VlWYaH0iEbmOVit4lmJrHYdj4tz5IDzbdpVA=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('tvN','제로웨이스트zero waste 이렇게만 도전하면 나도 할 수 있다 쓰레기줄이기!', 'https://www.youtube.com/embed/rsd5seVp-9I','https://yt3.ggpht.com/tKtfZSpmxJ69Feq07qhRsY8-_LV6fQXtSoeLlxnCbNIGtICFXUhceHQqqu2PS3xpnPF8tIVbzg=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('14F 일사에프','제로 웨이스트 가능한 일인가? / 14F','https://www.youtube.com/embed/0JiF52gYbrw','https://yt3.ggpht.com/x8wFp1vdQm6eYdsw6_mA85YQrkVmn7IGARKAv3loTSye_ZouDlsY9GJb81fig7BRnJqD7P64xg=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('디에디트라이프 THE EDIT','일회용품 쓰기 싫어요ㅠㅠ...초보를 위한 제로 웨이스트 아이템 하울!','https://www.youtube.com/embed/AC_yAQ7R6VM','https://yt3.ggpht.com/ytc/AMLnZu8hYZYnC3Lev0Fyx-M3Fk0aZ74IGOwlfIiNSF3DZg=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('소소교실','[제로웨이스트] 제로웨이스트란 무엇일까요', 'https://www.youtube.com/embed/WV-9UMPND3U','https://yt3.ggpht.com/ytc/AMLnZu-UZnkBHTd7NBVRfhWwvrFsif-ELfmxHb-82t0P=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('김알밥은 파이어족','제로 웨이스트 돈 쓰지마세요. 지금 바로 시작할 수 있는 습관 5가지', 'https://www.youtube.com/embed/BScP44Gb2No','https://yt3.ggpht.com/iDYUgqaUfukwxZ6HwMlI4hAMdvtVZX2s3vT9t444Ly7hAqeXgb6fiErH5CSMBMTxFdJzjcQ17g=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('히조heejo','ENG/내가 사지 않는 10가지. 제로웨이스트. 10 things I dont buy anymore', 'https://www.youtube.com/embed/kABUVWBnuPQ','https://yt3.ggpht.com/ytc/AMLnZu_bhpbYv8UBnbkyDpBgIdgSSoC3SDbCvuLPmeCj=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('긍정수키의 지구생활','제로웨이스트의 하루', 'https://www.youtube.com/embed/AwbqtgupTfg','https://yt3.ggpht.com/ytc/AMLnZu8wul_9uFGISVV5IsGpCvRaCqNHP2C9CfQHXiI=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('하미마미 Hamimommy','일회용품 대신 사용하는 일상속 13가지 물건들ㅣ제로웨이스트 루틴ㅣ', 'https://youtube.com/embed/nBUBwvOwCKY','https://yt3.ggpht.com/JPReclXNoE3QpVozSG9ypDGtU_SJmWmvMENAII7VgsCuI71rQf5zjj5OBwRrDmFomOijxJPs=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('꿀주부 Honeyjubu','일회용품 줄일수있는 현명한 방법 친환경 살림템 추천, 제로웨이스트 루틴', 'https://youtube.com/embed/ABKDu00_4ds','https://yt3.ggpht.com/9j25ekQSuW4LRUv9aeWUQjD9IcsGIXYWYe6d7dxRvXMLIab_jniPTsA96ssmZYkD2IY4G0bJ=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('쓰레기왕국 Trash Kingdom','플라스틱 없는 욕실 만들기🛁 욕실용품 추천템✨', 'https://youtube.com/embed/cTCiFn0Ib4E','https://yt3.ggpht.com/XeS7ZPtR5hOV6XxUlukeuPpPbm5zgvey11_P16B3DHWGubX8eq8P_LPmkm9Hhp2XzVlBskGn=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('오늘무해 프라우허','내가 더 이상 사지않는 물건 6가지/제로웨이스트/살림/살림팁/살림브이로그', 'https://youtube.com/embed/jd5272eihso','https://yt3.ggpht.com/ytc/AMLnZu-_1cfWi2YF5lpSRE9T1Ra34hLarPHQOOJc2cJEZA=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('YTN 사이언스','쓰레기 배출을 최소화하는 제로웨이스트샵 / YTN 사이언스', 'https://youtube.com/embed/t1hMh4Q3-xU','https://yt3.ggpht.com/ytc/AMLnZu-VQfohOVIKVgExhHxczGG8HTkPQDKjG8bhVGXSQQ=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('tvN','제로웨이스트 5단계를 실천하자 놀랍게 줄어든 쓰레기의 양!', 'https://youtube.com/embed/MraUxOIu7Tc','https://yt3.ggpht.com/tKtfZSpmxJ69Feq07qhRsY8-_LV6fQXtSoeLlxnCbNIGtICFXUhceHQqqu2PS3xpnPF8tIVbzg=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('볼수록 공감','제로 웨이스트 이렇게하면 나도 할 수 있다!│빠르게공감', 'https://youtube.com/embed/DXJGR7iJXqk','https://yt3.ggpht.com/xNStrJtLA44S2XE89X9dJHWLT38QyNfyzR1Qla2nAq2sBn4To35Hhj2xdTH6IztI8TifGw1zJw=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('오늘무해 프라우허','일회용품을 대체하는 무해한 살림템 6가지', 'https://youtube.com/embed/t2enhIXQm7Y','https://yt3.ggpht.com/ytc/AMLnZu-_1cfWi2YF5lpSRE9T1Ra34hLarPHQOOJc2cJEZA=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('EBS STORY','[다큐시선] 플라스틱 없이 살아보기 part 2', 'https://youtube.com/embed/LM6HORFapSU','https://yt3.ggpht.com/xayXQX2MMPkrwHRB_E82H2GFbwuhJGGPDxt9wAkrIiZnAXgef5uQA2nzPdpyYMLXGsdZ1BUP=s48-c-k-c0x00ffffff-no-rj');
+insert into youtube(name,content,video,logo) values('티아 Tia','따라하면 무조건 인생이 바뀔 수 밖에 없는 작은 습관 5가지', 'https://youtube.com/embed/CE1oCNKLhIU','https://yt3.ggpht.com/ytc/AMLnZu93I-osfB0g97uqPgxJZKWRvxgtVrUuw6ybuTg08A=s48-c-k-c0x00ffffff-no-rj');
+
+select * from youtube
+
+
+select * from t_login;
+
+INSERT INTO t_login (login_id, login_type, user_name, joindate, u_birthdate, post, u_addr, u_grade, u_point, u_type, u_nick) VALUES ('1212', 'N', 'user_name 1', sysdate, sysdate, 'post 1', 'u_addr 1', 'u_grade 1', 1, 'u_type 1', 'u_nick 1');
+INSERT INTO t_user
+    (login_id, 
+    u_pw)
+VALUES
+    ('1212', 
+    '1212');
+
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 01', 'buy_content 01', sysdate, 'login_id 01', 01, 01, 'img_file1 01', 'img_file2 01', 'img_file3 01', 'img_file4 01', 'img_file5 01');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 02', 'buy_content 02', sysdate, 'login_id 02', 02, 02, 'img_file1 02', 'img_file2 02', 'img_file3 02', 'img_file4 02', 'img_file5 02');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 03', 'buy_content 03', sysdate, 'login_id 03', 03, 03, 'img_file1 03', 'img_file2 03', 'img_file3 03', 'img_file4 03', 'img_file5 03');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 04', 'buy_content 04', sysdate, 'login_id 04', 04, 04, 'img_file1 04', 'img_file2 04', 'img_file3 04', 'img_file4 04', 'img_file5 04');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 05', 'buy_content 05', sysdate, 'login_id 05', 05, 05, 'img_file1 05', 'img_file2 05', 'img_file3 05', 'img_file4 05', 'img_file5 05');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 06', 'buy_content 06', sysdate, 'login_id 06', 06, 06, 'img_file1 06', 'img_file2 06', 'img_file3 06', 'img_file4 06', 'img_file5 06');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 07', 'buy_content 07', sysdate, 'login_id 07', 07, 07, 'img_file1 07', 'img_file2 07', 'img_file3 07', 'img_file4 07', 'img_file5 07');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 08', 'buy_content 08', sysdate, 'login_id 08', 08, 08, 'img_file1 08', 'img_file2 08', 'img_file3 08', 'img_file4 08', 'img_file5 08');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 09', 'buy_content 09', sysdate, 'login_id 09', 09, 09, 'img_file1 09', 'img_file2 09', 'img_file3 09', 'img_file4 09', 'img_file5 09');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 10', 'buy_content 10', sysdate, 'login_id 10', 10, 10, 'img_file1 10', 'img_file2 10', 'img_file3 10', 'img_file4 10', 'img_file5 10');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 11', 'buy_content 11', sysdate, 'login_id 11', 11, 11, 'img_file1 11', 'img_file2 11', 'img_file3 11', 'img_file4 11', 'img_file5 11');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 12', 'buy_content 12', sysdate, 'login_id 12', 12, 12, 'img_file1 12', 'img_file2 12', 'img_file3 12', 'img_file4 12', 'img_file5 12');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 13', 'buy_content 13', sysdate, 'login_id 13', 13, 13, 'img_file1 13', 'img_file2 13', 'img_file3 13', 'img_file4 13', 'img_file5 13');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 14', 'buy_content 14', sysdate, 'login_id 14', 14, 14, 'img_file1 14', 'img_file2 14', 'img_file3 14', 'img_file4 14', 'img_file5 14');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 15', 'buy_content 15', sysdate, 'login_id 15', 15, 15, 'img_file1 15', 'img_file2 15', 'img_file3 15', 'img_file4 15', 'img_file5 15');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 16', 'buy_content 16', sysdate, 'login_id 16', 16, 16, 'img_file1 16', 'img_file2 16', 'img_file3 16', 'img_file4 16', 'img_file5 16');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 17', 'buy_content 17', sysdate, 'login_id 17', 17, 17, 'img_file1 17', 'img_file2 17', 'img_file3 17', 'img_file4 17', 'img_file5 17');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 18', 'buy_content 18', sysdate, 'login_id 18', 18, 18, 'img_file1 18', 'img_file2 18', 'img_file3 18', 'img_file4 18', 'img_file5 18');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 19', 'buy_content 19', sysdate, 'login_id 19', 19, 19, 'img_file1 19', 'img_file2 19', 'img_file3 19', 'img_file4 19', 'img_file5 19');
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 20', 'buy_content 20', sysdate, 'login_id 20', 20, 20, 'img_file1 20', 'img_file2 20', 'img_file3 20', 'img_file4 20', 'img_file5 20');
+
+INSERT INTO t_buy_board (buy_title, buy_content, buy_regdate, login_id, buy_cnt, buy_likes, img_file1, img_file2, img_file3, img_file4, img_file5) VALUES ('buy_title 1', 'buy_content 1', sysdate, 'asdf', 1, 1, 'img_file1 1', 'img_file2 1', 'img_file3 1', 'img_file4 1', 'img_file5 1');
+
+select * from t_buy_board_form_goods
+INSERT INTO t_buy_board_form
+    (login_id, 
+    user_name, 
+    user_phone, 
+    user_addr, 
+    user_amount, 
+    buy_seq)
+VALUES
+    ('asdf','수진','01011111111','서울',10000,21)
+    
+    
+    
+    where buy_seq=21
+    
+    insert into t_buy_board_form_goods
+    select (select max(bf_seq) from t_buy_board_form)
+    	(goods_name, 
+    goods_cnt)
+VALUES
+    (#{goods_name},0)
+    From t_buy_board_form
+    
+    select f.bf_seq,f.login_id, f.user_name, f.user_phone, 
+    f.user_addr, 
+    f.user_amount, 
+    f.buy_seq,
+    g.goods_name from t_buy_board_form_goods g,  t_buy_board_form f
+    where login_id='asdf'
+   
+    
+    insert into t_buy_board_form_goods(goods_name,goods_cnt,bf_seq)
+    VALUES ('비누',3,(select max(bf_seq) from t_buy_board_form))
+    
+    
+(select max(bf_seq) from t_buy_board_form)
+    	(goods_name, 
+    goods_cnt)
+VALUES
+    (#{goods_name},0)
+    From t_buy_board_form
+    
+    select xx.zw_seq, xx.zw_title, xx.zw_content,xx.zw_file, xx.zw_date, xx.login_id, xx.zw_cnt,xx.zw_likes,xx.zw_headline,xx.zw_cmtcnt, (select u_grade from t_login t where t.login_id= b.login_id) as u_grade from (select rownum as r, x.* from (select zw_seq,zw_title,zw_content,zw_file,zw_date,login_id,zw_cnt,zw_likes,zw_headline,(select count(*) from t_zero_waste_comment c where c.zw_seq = b.zw_seq) as zw_cmtcnt from  t_zw_board b order by zw_seq DESC) x) xx where xx.r between 2 and 3
+    
+    
+select * from t_buy_board_form_goods
+
+select f.bf_seq,f.login_id, f.user_name, f.user_phone, 
+    f.user_addr, 
+    f.user_amount, 
+    f.buy_seq,
+    g.goods_name 
+    from t_buy_board_form_goods g,  t_buy_board_form f
+    where login_id='1212' and buy_seq=20 and g.bf_seq=f.bf_seq;
+    
+select * from t_login
+    
+
+select xx.zw_seq, xx.zw_title, xx.zw_content, xx.zw_file, xx.zw_date, xx.login_id, xx.zw_cnt, xx.zw_likes, xx.zw_headline, xx.zw_cmtcnt, xx.u_grade from (select rownum as r, x.* from (select zw_seq,zw_title,zw_content,zw_file,zw_date,login_id,zw_cnt,zw_likes,zw_headline,(select count(*) from t_zero_waste_comment c where c.zw_seq = b.zw_seq) as zw_cmtcnt , (select u_grade from t_login t where t.login_id= b.login_id) as u_grade from  t_zw_board b order by zw_seq DESC) x) xx where xx.r between 255 and 260
+
+
+select * from t_together_comment
+
+select c.*, (select u_grade from t_login t where t.login_id=c.login_id) as u_grade 
+from t_img_comment c where img_seq=74 order by img_cmt_seq
+
+select * from  (select a.*,(select count(grade_cmt_seq) from t_grade_comment ) as grade_cmtcnt, ROWNUM from t_grade_board a where notice is not null order by notice desc) where ROWNUM <= 3
+
+select * from (select a.*, (select count(grade_cmt_seq) from t_grade_comment ) as grade_cmtcnt, ROWNUM from t_grade_board a where notice is not null order by notice desc) where ROWNUM <= 3
+
+select * from (select a.*,(select count(tb_cmt_seq) from t_together_comment where tb_seq=#{tb_seq} ) as tb_cmtcnt, ROWNUM from t_together_board a where notice is not null order by notice desc) where ROWNUM <= 3
+
+select * from (select a.*, (select count(*) from t_together_comment c where c.tb_seq = a.tb_seq) as tb_cmtcnt, ROWNUM from t_together_board a where notice is not null order by notice desc) a where ROWNUM <= 3
+
+select a.*, (select count(*) from t_together_comment c where c.tb_seq=a.tb_seq) as tb_cmtcnt from t_together_board a
+
+select * from (select a.*, (select count(*) from t_grade_comment c where c.grade_seq = a.grade_seq) as grade_cmtcnt, ROWNUM from t_grade_board a where notice is not null order by notice desc) a where ROWNUM <= 3
+
+select (select count(*) from t_together_comment where login_id='carrot@naver.com') + (select count(*) from t_zero_waste_comment where login_id='carrot@naver.com') + (select count(*) from t_buy_comment where login_id='carrot@naver.com')+ (select count(*) from t_buy_comment where login_id='carrot@naver.com')+ (select count(*) from t_buy_comment where login_id='carrot@naver.com') from dual
+
+select * from (select a.zw_seq, a.zw_title, a.zw_content, a.zw_file, a.zw_date, a.login_id, a.zw_cnt, a.zw_likes, a.notice, a.zw_headline, b.u_grade from t_zw_board a join t_login b on a.login_id = b.login_id where notice is not null order by notice desc) where ROWNUM <= 3
+		
+		
+select * from (select a.grade_seq, a.grade_title, a.grade_content, a.grade_file, a.grade_regdate, a.login_id, a.grade_cnt, a.grade_likes, a.notice, a.grade_headline, b.u_grade from t_grade_board a join t_login b on a.login_id = b.login_id where notice is not null order by notice desc) where ROWNUM <= 3		
+		
+		
+		
+
+select a.zw_seq, a.zw_title, a.zw_content, a.zw_file, a.zw_date, a.login_id, a.zw_cnt, a.zw_likes, a.notice, a.zw_headline, b.u_grade from t_zw_board a join t_login b on a.login_id = b.login_id where notice is not null order by notice desc
+select a.tb_seq, a.tb_title, a.tb_content, a.tb_file, a.tb_regdate, a.login_id, a.tb_cnt, a.tb_likes, a.notice, a.tb_headline, b.u_grade, ROWNUM as rn from t_together_board a join t_login b on a.login_id = b.login_id where notice is not null order by notice desc
+
+select * from (select a.zw_seq, a.zw_title, a.zw_content, a.zw_file, a.zw_date, a.login_id, a.zw_cnt, a.zw_likes, a.notice, a.zw_headline, b.u_grade from t_zw_board a join t_login b on a.login_id = b.login_id where notice is not null order by notice desc) a where ROWNUM &lt;= #{list_end}) where rn &gt;= #{list_start}
+select * from (select a.tb_seq, a.tb_title, a.tb_content, a.tb_file, a.tb_regdate, a.login_id, a.tb_cnt, a.tb_likes, a.notice, a.tb_headline, b.u_grade, ROWNUM as rn from t_together_board a join t_login b on a.login_id = b.login_id where notice is not null and ROWNUM <= 2 order by notice desc) where rn >= 1
+
+select * from (select a.zw_seq, a.zw_title, a.zw_content, a.zw_file, a.zw_date, a.login_id, a.zw_cnt, a.zw_likes, a.notice, a.zw_headline, b.u_grade from t_zw_board a join t_login b on a.login_id = b.login_id where notice is not null and ROWNUM <= 2 order by notice desc) a where rn >= 1
+
+select xx.img_seq, xx.img_title, xx.img_content,xx.img_file1,xx.img_file2, xx.img_file3,xx.img_file4,xx.img_file5,xx.img_regdate, xx.login_id,xx.img_headline, xx.img_cnt,xx.img_likes,xx.img_cmtcnt from (select rownum as r, x.* from (select img_seq,img_title,img_content,img_file1,img_file2,img_file3,img_file4,img_file5,img_headline,img_regdate,login_id,img_cnt,img_likes,(select count(*) from t_img_comment c where c.img_seq = b.img_seq) as img_cmtcnt from  t_img_board b order by img_seq DESC) x) xx where xx.r <= 4
+
+select * from t_login l, t_user u where l.login_id = u.login_id and l.login_id ='1212'
+
+
