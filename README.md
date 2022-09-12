@@ -14,14 +14,14 @@
 
 ## ⭐ 주요 기능
 * WEB-관리자
-    *로그인 개인정보 수정화면
-    *관리자 페이지(전체 유저 탈퇴기능, 공지사항 관리)
+    * 로그인 개인정보 수정화면
+    * 관리자 페이지(전체 유저 탈퇴기능, 공지사항 관리)
 * 반응형 웹- 사용자
-    *회원가입, 로그인, 개인정보 수정화면
-    *마이페이지
-    *지도, 유튜브 및 주간인기검색어 화면
-    *자유 게시판, 정보 게시판 수정, 삭제, 쓰기 화면
-    *댓글 쓰기, 삭제, 수정 화면
+    * 회원가입, 로그인, 개인정보 수정화면
+    * 마이페이지
+    * 지도, 유튜브 및 주간인기검색어 화면
+    * 자유 게시판, 정보 게시판 수정, 삭제, 쓰기 화면
+    * 댓글 쓰기, 삭제, 수정 화면
 
 <br>
 
@@ -35,6 +35,7 @@
         <td>사용언어</td>
         <td>
             <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/>
+           <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white"/>
             <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"/>
             <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"/>
             <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>
