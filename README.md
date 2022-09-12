@@ -41,6 +41,7 @@
             <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>
             <img src="https://img.shields.io/badge/JSON-3776AB?style=for-the-badge&logo=JSON&logoColor=white"/>
            <img src="https://img.shields.io/badge/JSP-007395?style=for-the-badge&logo=JSP&logoColor=white"/> 
+           <img src="https://img.shields.io/badge/Ajax-00599C?style=for-the-badge&logo=Ajax&logoColor=white"/> 
         </td>
     </tr>
     <tr>
